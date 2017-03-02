@@ -22,13 +22,13 @@ public:
 	// a "getter" method
 	int getWeight() {
         
-		return weight; // TO BE COMPLETED
+		return weight;
 	}
 
 	// a "getter" method
 	string getName() {
         
-		return name; // TO BE COMPLETED
+		return name; 
 	}
 
 

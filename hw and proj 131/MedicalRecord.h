@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include <stdexcept>
+#include <vector>
+#include <map>
 
 #include "Baby.h"
 
@@ -9,40 +11,29 @@ using namespace std;
 class MedicalRecord {
 private:
     // update the data structure with information contained in Baby object
+    vector<Baby>v;
     void addEntry(Baby b) {
-        // not sure how to construct
+        v.push_back(b);
+        
     }
-    
-    // Add private member variables for your data structure along with any
-    // other variables required to implement the public member functions
-    int *babies;
-    int babyarr;
     
     
 public:
-    int count;
     
 	// default constructor
-	MedicalRecord(int bbsize) {
-        babyarr = bbsize;               //
-        babies = new int[babyarr];      //dynamically allocate memory for babies
-	}
-    /*MedicalRecord(int bby[], int bbyarr)   {
-        babyarr = bbyarr;
-        babies = new int[babyarr];
-        for(int i = 0; i < babyarr; i++)
-            babies[i] = bby[i];
-    }*/
+	MedicalRecord() {
+        vector<Baby>v;	}
+    
 	// destructor
 	~MedicalRecord() {
-        delete[] babies;
+        v.clear();
 	}
 
 	// Load information from a text file with the given filename.
 	void buildMedicalRecordfromDatafile(string filename) {
 		ifstream myfile(filename);
 
-		if (myfile.is_open()) {
+		if (!myfile.is_open()) {
 			cout << "Successfully opened file " << filename << endl;
 			string name;
 			int weight;
@@ -59,30 +50,54 @@ public:
 
 	// return the most frequently appearing name in the text file
 	string mostPopularName() {
-        return mpname;   //sort alphabetically
-                                //count repeating names and compare and keep most common name
-                                //output name
+        map<string, int> cnt;
+        int i;
+        for ( i = 0 ; i < v.size() ; i ++ ){
+            string BabyName = v[i].getName();
+            cnt[BabyName] ++; // counting number of times BabyName is occuring!
+        }
+        
+        int cnt_value = 0;
+        string ans;
+        
+        for ( i = 0 ; i < v.size() ; i ++ ){
+            string BabyName = v[i].getName();
+            if ( cnt_value < cnt[BabyName] ){
+                cnt_value = cnt[BabyName];
+                ans = BabyName;
+            }
+        }
+        
+        return ans;
+           
 	}
 
 	// return the number of baby records loaded from the text file
-	int numberOfBirths(int babyw) {
-		return babies[babyw];
+	int numberOfBirths() {
+        int len = v.size();
+        return len;
 	}
 
 	// return the number of babies who had birth weight < 2500 grams
-	int numberOfBabiesWithLowBirthWeight(int w) {
+	int numberOfBabiesWithLowBirthWeight() {
+        int i, count = 0;
+        for (int i=0;i < v.size() ; i++)  {
+            if (v[i].getWeight() < 2500)
+                count++;
+                }
         
-        while(w < 2500)
-            count++;
     
 		return count;
 	}
 
 	// return the number of babies who have the name contained in string s
 	int numberOfBabiesWithName(string s) {
-        for (int i=0; ; i++)
+        int i, count = 0;
+        for (int i=0;i < v.size() ; i++)
+            if (v[i].getName() == s){
             count++;
-        return;  //
+            }
+        return count;  //
 	}
 
 
