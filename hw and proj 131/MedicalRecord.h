@@ -12,11 +12,10 @@ class MedicalRecord {
 private:
     // update the data structure with information contained in Baby object
     vector<Baby>v;
-    void addEntry(Baby b) {
-        v.push_back(b);
-        
-    }
     
+    void addEntry(Baby b) {
+        v.push_back(b);             //stores values at the end
+    }
     
 public:
     
@@ -40,7 +39,7 @@ public:
 			while (myfile >> name >> weight) {
 				// cout << name << " " << weight << endl;
 				Baby b(name, weight);
-				addEntry(b);
+				addEntry(b);                //adding it into the vector
 			}
 			myfile.close();
 		}
@@ -50,21 +49,22 @@ public:
 
 	// return the most frequently appearing name in the text file
 	string mostPopularName() {
-        map<string, int> cnt;
+        map<string, int> cnt;                   //for each string assigns int value
         int i;
-        for ( i = 0 ; i < v.size() ; i ++ ){
-            string BabyName = v[i].getName();
-            cnt[BabyName] ++; // counting number of times BabyName is occuring!
+        for ( i = 0 ; i < v.size() ; i ++ ) {
+            string BabyName = v[i].getName();   //gets name at index and assigns to BabyName
+            cnt[BabyName] ++;                   //cnt number of times BabyName is occuring <name, int>
         }
         
-        int cnt_value = 0;
+        int cnt_value = 0;      //
         string ans;
         
-        for ( i = 0 ; i < v.size() ; i ++ ){
-            string BabyName = v[i].getName();
-            if ( cnt_value < cnt[BabyName] ){
-                cnt_value = cnt[BabyName];
-                ans = BabyName;
+        for ( i = 0 ; i < v.size() ; i ++ ) {
+            string BabyName = v[i].getName();       //get indexed name
+            
+            if ( cnt_value < cnt[BabyName] )    {   //cnt value has max and compares w/current name/value
+                cnt_value = cnt[BabyName];          //highest cnt[BabyName] > than all other values cnt
+                ans = BabyName;                     //assigns hightest BabyName to ans
             }
         }
         
