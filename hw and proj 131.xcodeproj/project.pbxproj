@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9872DA671E5BF1BC00A3EA8E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9872DA661E5BF1BC00A3EA8E /* main.cpp */; };
+		9872DA721E5BF7E300A3EA8E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 9872DA711E5BF7E300A3EA8E /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +24,9 @@
 
 /* Begin PBXFileReference section */
 		9872DA631E5BF1BC00A3EA8E /* hw and proj 131 */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "hw and proj 131"; sourceTree = BUILT_PRODUCTS_DIR; };
-		9872DA661E5BF1BC00A3EA8E /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		9872DA6E1E5BF78E00A3EA8E /* Baby.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Baby.h; sourceTree = "<group>"; };
+		9872DA6F1E5BF78E00A3EA8E /* MedicalRecord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MedicalRecord.h; sourceTree = "<group>"; };
+		9872DA711E5BF7E300A3EA8E /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +59,9 @@
 		9872DA651E5BF1BC00A3EA8E /* hw and proj 131 */ = {
 			isa = PBXGroup;
 			children = (
-				9872DA661E5BF1BC00A3EA8E /* main.cpp */,
+				9872DA711E5BF7E300A3EA8E /* main.cpp */,
+				9872DA6E1E5BF78E00A3EA8E /* Baby.h */,
+				9872DA6F1E5BF78E00A3EA8E /* MedicalRecord.h */,
 			);
 			path = "hw and proj 131";
 			sourceTree = "<group>";
@@ -118,7 +122,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9872DA671E5BF1BC00A3EA8E /* main.cpp in Sources */,
+				9872DA721E5BF7E300A3EA8E /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

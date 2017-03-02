@@ -7,15 +7,35 @@
 using namespace std;
 
 class MedicalRecord {
+private:
+    // update the data structure with information contained in Baby object
+    void addEntry(Baby b) {
+        // not sure how to construct
+    }
+    
+    // Add private member variables for your data structure along with any
+    // other variables required to implement the public member functions
+    int *babies;
+    int babyarr;
+    
+    
 public:
+    int count;
+    
 	// default constructor
-	MedicalRecord() {
-		// TO BE COMPLETED
+	MedicalRecord(int bbsize) {
+        babyarr = bbsize;               //
+        babies = new int[babyarr];      //dynamically allocate memory for babies
 	}
-
+    /*MedicalRecord(int bby[], int bbyarr)   {
+        babyarr = bbyarr;
+        babies = new int[babyarr];
+        for(int i = 0; i < babyarr; i++)
+            babies[i] = bby[i];
+    }*/
 	// destructor
 	~MedicalRecord() {
-		// TO BE COMPLETED
+        delete[] babies;
 	}
 
 	// Load information from a text file with the given filename.
@@ -39,31 +59,31 @@ public:
 
 	// return the most frequently appearing name in the text file
 	string mostPopularName() {
-		return "COMPLETE ME"; // TO BE COMPLETED
+        return mpname;   //sort alphabetically
+                                //count repeating names and compare and keep most common name
+                                //output name
 	}
 
 	// return the number of baby records loaded from the text file
-	int numberOfBirths() {
-		return -1; // TO BE COMPLETED
+	int numberOfBirths(int babyw) {
+		return babies[babyw];
 	}
 
 	// return the number of babies who had birth weight < 2500 grams
-	int numberOfBabiesWithLowBirthWeight() {
-		return -1; // TO BE COMPLETED
+	int numberOfBabiesWithLowBirthWeight(int w) {
+        
+        while(w < 2500)
+            count++;
+    
+		return count;
 	}
 
 	// return the number of babies who have the name contained in string s
 	int numberOfBabiesWithName(string s) {
-		return -1; // TO BE COMPLETED
+        for (int i=0; ; i++)
+            count++;
+        return;  //
 	}
 
-private:
-	// update the data structure with information contained in Baby object
-	void addEntry(Baby b) {
-		// TO BE COMPLETED
-	}
-
-	// Add private member variables for your data structure along with any 
-	// other variables required to implement the public member functions
 
 };
